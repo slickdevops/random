@@ -1,2 +1,206 @@
-404
-sorry :c
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Расписание</title>
+<!--nak rel="stylesheet" type="text/css" href="/src/schedule_stack/schedule_mirror/schedule/templates/schedule/arba.css" /> -->
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+</script>
+<style>
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+.intro {
+  max-width: 1280px;
+  margin: 1em auto;
+}
+.table-scroll {
+  position: relative;
+  width:100%;
+  z-index: 1;
+  margin: auto;
+  overflow: auto;
+  height: 100%;
+}
+.table-scroll table {
+  width: 100%;
+  min-width: 1280px;
+  margin: auto;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.table-wrap {
+  position: relative;
+}
+.table-scroll th,
+.table-scroll td {
+  padding: 5px 10px;
+  border: 1px solid #000;
+
+  vertical-align: top;//
+}
+.table-scroll thead th {
+  background: #7f7979;
+
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+/* safari and ios need the tfoot itself to be position:sticky also */
+.table-scroll tfoot,
+.table-scroll tfoot th,
+.table-scroll tfoot td {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  background: #666;
+
+  z-index:4;
+}
+
+a:focus {
+  background: red;
+} /* testing links*/
+th:first-child {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: #ccc;
+}
+thead th:first-child,
+tfoot th:first-child {
+  z-index: 5;
+}
+
+</style>
+
+
+<!--<link rel="stylesheet" type="text/css" href="arba.css" /> -->
+<meta charset="utf-8">
+
+</head>
+<body>
+<font face="Arial">
+Last updated in schedule: 09:00 2021-09-16
+<div id="table-scroll" class="table-scroll">
+	<div class="scroll_to_left">
+    
+	<table border="1" cellspacing=0 id="main-table" class="main-table">
+	
+	<caption></caption>
+	<thead>
+<tr>
+<th scope=col>Name/date</th>
+</tr>
+</thead>
+	<tbody>
+<tr>
+<th nowrap scope=col>Б. Михаил</th>
+</tr>
+<tr>
+<th nowrap scope=col>Б. Ильмира</th>
+</tr>
+<tr>
+<th nowrap scope=col>Г. Артур</th>
+</tr>
+<tr>
+<th nowrap scope=col>Г. Наталья</th>
+</tr>
+<tr>
+<th nowrap scope=col>З. Ильдар</th>
+</tr>
+<tr>
+<th nowrap scope=col>З. Дарья</th>
+</tr>
+<tr>
+<th nowrap scope=col>И. Ильяс</th>
+</tr>
+<tr>
+<th nowrap scope=col>К. Денис</th>
+</tr>
+<tr>
+<th nowrap scope=col>К. Дмитрий</th>
+</tr>
+<tr>
+<th nowrap scope=col>К. Павел</th>
+</tr>
+<tr>
+<th nowrap scope=col>К. Эдуард</th>
+</tr>
+<tr>
+<th nowrap scope=col>К. Дарья</th>
+</tr>
+<tr>
+<th nowrap scope=col>М. Василий</th>
+</tr>
+<tr>
+<th nowrap scope=col>М. Бэлигма</th>
+</tr>
+<tr>
+<th nowrap scope=col>М. Альбина</th>
+</tr>
+<tr>
+<th nowrap scope=col>Н. Дамир</th>
+</tr>
+<tr>
+<th nowrap scope=col>П. Виолетта</th>
+</tr>
+<tr>
+<th nowrap scope=col>Р. Анар</th>
+</tr>
+<tr>
+<th nowrap scope=col>Т. Никита</th>
+</tr>
+<tr>
+<th nowrap scope=col>Ф. Дарина</th>
+</tr>
+<tr>
+<th nowrap scope=col>Х. Линара</th>
+</tr>
+<tr>
+<th nowrap scope=col>Ш. Элина</th>
+</tr>
+<tr>
+<th nowrap scope=col>Ш. Альбина</th>
+</tr>
+</tbody
+<tfoot>
+<tr>
+<th>Покрытие</th>
+</tr>
+</tfoot>
+	</table>
+    </div>
+</div>
+</font>
+<script>
+var myDiv = document.getElementById("table-scroll");
+myDiv.scrollLeft = myDiv.scrollWidth/2.2;
+(function() {
+    function scrollHorizontally(e) {
+        e = window.event || e;
+        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+        document.getElementById('table-scroll').scrollLeft -= (delta * 100); // Multiplied by 40
+        e.preventDefault();
+    }
+    if (document.getElementById('table-scroll').addEventListener) {
+        // IE9, Chrome, Safari, Opera
+        document.getElementById('table-scroll').addEventListener('mousewheel', scrollHorizontally, false);
+        // Firefox
+        document.getElementById('table-scroll').addEventListener('DOMMouseScroll', scrollHorizontally, false);
+    } else {
+        // IE 6/7/8
+        document.getElementById('table-scroll').attachEvent('onmousewheel', scrollHorizontally);
+    }
+})();
+</script>
+</body>
+</html>
+
